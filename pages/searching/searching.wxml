@@ -1,0 +1,11 @@
+<!--pages/searching.wxml-->
+<!-- 搜索栏 -->
+<input id="searchbox" type="text" placeholder="🔍输入商家、美食..." confirm-type="search" bindconfirm="submitSearching" maxlength="50" value="{{text}}" />
+
+<!-- Todo: 放置一排[图标+文字]筛选菜系：饺子馄饨、汉堡薯条、快餐便当等 -->
+
+<scroll-view>
+  <image src="../../assets/merchant_search_list.png" style="width: 100%; height: 600px;" />
+  <image src="../../assets/merchant_search_list.png" style="width: 100%; height: 600px;" />
+  <image src="../../assets/merchant_search_list.png" style="width: 100%; height: 600px;" />
+</scroll-view>

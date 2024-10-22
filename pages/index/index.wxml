@@ -1,27 +1,45 @@
 <!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
-    </view>
-  </view>
+
+<!-- Todo: 设置一个下拉列表切换博川/二期/三期 -->
+<!-- 搜索栏 -->
+<input id="searchbox" type="text" placeholder="🔍输入商家、美食..." confirm-type="search" bindconfirm="submitSearching" maxlength="50" />
+
+<!-- 滑块功能，详见：https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html -->
+<swiper autoplay circular indicator-dots interval="2000">
+	<swiper-item style="background-color: yellowgreen;">1</swiper-item>
+	<swiper-item style="background-color: greenyellow;">2</swiper-item>
+	<swiper-item style="background-color: green;">3</swiper-item>
+</swiper>
+
+<!-- Todo: 放置一排[图标+文字]筛选菜系：校园美食、甜点饮品、校园超市、水果蔬菜 -->
+<view style="display: flex; flex-direction: row;">
+	<view style="flex-grow: 1; text-align: center;">
+		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px; " />
+		<view>{{location}}美食</view>
+	</view>
+	<view style="flex-grow: 1; text-align: center;">
+		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px;" />
+		<view>饮品甜点</view>
+	</view>
+	<view style="flex-grow: 1;text-align: center;">
+		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px;" />
+		<view>校园超市</view>
+	</view>
+	<view style="flex-grow: 1;text-align: center;">
+		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px;" />
+		<view>蔬菜水果</view>
+	</view>
+</view>
+
+<!-- Todo: 放置一排筛选按钮，【综合排序/好评优先/销量优先/速度优先】 -->
+<view></view>
+
+<!-- Todo: 推荐商家列表，样式待调整，打算自定义一个tabbar：https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html -->
+<scroll-view style="background-color: pink;">
+	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
+	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
+	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
+	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
+	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
+	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
 </scroll-view>

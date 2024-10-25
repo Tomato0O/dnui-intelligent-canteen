@@ -6,27 +6,33 @@
 
 <!-- 滑块功能，详见：https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html -->
 <swiper autoplay circular indicator-dots interval="2000">
-	<swiper-item style="background-color: yellowgreen;">1</swiper-item>
-	<swiper-item style="background-color: greenyellow;">2</swiper-item>
-	<swiper-item style="background-color: green;">3</swiper-item>
+	<swiper-item>
+		<image src="/assets/images/index/banner1.jpg" style="width: 390px;" />
+	</swiper-item>
+	<swiper-item>
+		<image src="/assets/images/index/banner1.jpg" style="width: 390px;" />
+	</swiper-item>
+	<swiper-item>
+		<image src="/assets/images/index/banner1.jpg" style="width: 390px;" />
+	</swiper-item>
 </swiper>
 
 <!-- Todo: 放置一排[图标+文字]筛选菜系：校园美食、甜点饮品、校园超市、水果蔬菜 -->
 <view style="display: flex; flex-direction: row;">
 	<view style="flex-grow: 1; text-align: center;">
-		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px; " />
+		<image class="mid-tools" src="/assets/icons/index/foods.png" />
 		<view>{{location}}美食</view>
 	</view>
 	<view style="flex-grow: 1; text-align: center;">
-		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px;" />
+		<image class="mid-tools" src="/assets/icons/index/drink.png" />
 		<view>饮品甜点</view>
 	</view>
 	<view style="flex-grow: 1;text-align: center;">
-		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px;" />
+		<image class="mid-tools" src="/assets/icons/index/market.png" />
 		<view>校园超市</view>
 	</view>
 	<view style="flex-grow: 1;text-align: center;">
-		<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7klEQVR4nO2WwQ3EMAgEka4POnAPbtJVXRv0wb3DJ4ri2OSYkfjFUlh2sUUAAHYwuh+qHAMBHAeMN0Vg3JxYPH9Wq//vFAToOEBKR+BuQ0/XckaCphGg4wAhAp0dICzBzi0gqzFtnqkQYDWWYOo4QBdGwBJMeasjLEFTCKA4wNNGwL+fQ+3+HgFmYzigEQFLcL2lXYKWrBBgNpZgqjhAiYCzA5Ql6K+4Bfzi2332eQSYjeGAVjsCkd0PneUNR3Y3jACKA3xrBCJ/t+SuggCKA7x0BCKvv+buggCKA7x0BCLlGo4ggOIALx0BAJCM/ACHtfcTm7ndMwAAAABJRU5ErkJggg==" style="width: 64px; height: 64px; border: blue solid 1px;" />
+		<image class="mid-tools" src="/assets/icons/index/fruit.png" />
 		<view>蔬菜水果</view>
 	</view>
 </view>

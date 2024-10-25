@@ -16,3 +16,9 @@
 swiper {
   margin: 10px;
 }
+
+.mid-tools {
+  width: 64px;
+  height: 64px;
+  border-style: dashed;
+}

@@ -1,16 +1,36 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/searching/searching"
-  ],
-  "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
-  },
-  "style": "v2",
-  "componentFramework": "glass-easel",
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+	"pages": [
+		"pages/index/index",
+		"pages/logs/logs",
+		"pages/searching/searching",
+		"pages/personal/personal"
+	],
+	"window": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "Weixin",
+		"navigationBarBackgroundColor": "#ffffff"
+	},
+	"style": "v2",
+	"componentFramework": "glass-easel",
+	"sitemapLocation": "sitemap.json",
+	"lazyCodeLoading": "requiredComponents",
+	"usingComponents": {},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/assets/icons/tabbar/icons8-可爱的南瓜-50.png",
+				"selectedIconPath": "/assets/icons/tabbar/icons8-cute-pumpkin-48.png"
+			},
+			{
+				"pagePath": "pages/personal/personal",
+				"text": "我的",
+				"iconPath": "/assets/icons/tabbar/icons8-albert-einstein-64.png",
+				"selectedIconPath": "/assets/icons/tabbar/icons8-albert-einstein-50.png"
+			}
+		],
+		"color": "#111111",
+		"selectedColor": "#"
+	}
 }

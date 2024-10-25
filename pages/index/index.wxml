@@ -7,13 +7,13 @@
 <!-- 滑块功能，详见：https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html -->
 <swiper autoplay circular indicator-dots interval="2000">
 	<swiper-item>
-		<image src="/assets/images/index/banner1.jpg" style="width: 390px;" />
+		<image src="/assets/images/index/banner1.jpg" style="width: inherit;" />
 	</swiper-item>
 	<swiper-item>
-		<image src="/assets/images/index/banner1.jpg" style="width: 390px;" />
+		<image src="/assets/images/index/banner1.jpg" style="width: inherit;" />
 	</swiper-item>
 	<swiper-item>
-		<image src="/assets/images/index/banner1.jpg" style="width: 390px;" />
+		<image src="/assets/images/index/banner1.jpg" style="width: inherit;" />
 	</swiper-item>
 </swiper>
 
@@ -41,7 +41,32 @@
 <view></view>
 
 <!-- Todo: 推荐商家列表，样式待调整，打算自定义一个tabbar：https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html -->
-<scroll-view style="background-color: pink;">
+<scroll-view style="background-color: white;">
+
+	<view style="display: flex; flex-direction: row; margin: 10px;">
+		<view>
+			<image src="/assets/images/index/hamburger-4104051_640.jpg" style="width: 128px;height: 128px;border-radius: 10px; margin-right: 10px;" />
+		</view>
+		<view style="padding: 10px;">
+			<view style="font-weight: bold;">汉博格（汉堡、可乐、炸鸡套餐）</view>
+			<view style="font-size: x-small; display: flex; color: #AAAAAA;margin: 5px 0;">
+				<text>月售2000+</text>
+				<text style="margin-left: auto;">排队人数1</text>
+			</view>
+			<view style="display: flex;">
+				<text style="font-size:small;">起送￥10</text>
+				<text style="margin-left: auto;">|</text>
+				<text style="font-size:small;margin-left: auto;">配送￥10</text>
+				<text style="margin-left: auto;">|</text>
+				<text style="font-size:small;margin-left: auto;">人均￥10</text>
+			</view>
+			<view class="tags" style="margin-top: 5px;">
+				<text style="background-color:greenyellow; color: green; font-size: x-small;">本月销量最高</text>
+				<text style="background-color:greenyellow; color: green; font-size: x-small;">本周好评最多</text>
+			</view>
+		</view>
+	</view>
+
 	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
 	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
 	<image src="../../assets/merchant_template.png" style="width: 100%; height: 150px;"></image>
